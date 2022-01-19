@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Deja Blogs</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <style>
+        #nav{
+            font-size: 20px;
+        }
+        .navbar-brand{
+            font-size: 40px;
+        }
+        .reports{
+            display: flexbox;
+            flex-wrap: wrap;
+            margin: auto;
+            padding-left: 30px;
+            border-left: 6px solid tomato;
+            /* margin-bottom: 100px; */
+            
+        }
+        .reports a{
+            text-decoration: none;
+            color: black;
+        }
+        body{
+            padding-left: 30px;
+        }
+        .reports a:hover h3{
+            color: blue;
+        }
+        .detail{
+            margin-top: 50px;
+            height: auto;
+            margin-bottom: 50px;
+            border-bottom: 4px solid purple;
+            width: 800px;
+        }
+        h3{
+            color: black;
+            font: 30px;
+            font-style: italic;
+        }
+        .detail img {
+            width: 250px;
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <%-include('./nav.ejs') %> 
+    <div class="reports">
+        <h1>All Blogs:</h1>    
+        <% if (reports.length > 0) { %>
+            <% reports.forEach(report=>{ %>
+                <div class="detail">
+                <a  class="single" href="/allBlogs/<%= report._id  %> " >
+                    <img src="" alt="">
+                    <h3  class="title"><%= report.title %> </h3>  
+                </a>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No reports filled</p>  
+            <% } %> 
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+        <link rel="stylesheet" href="./style.css">
+        <style>
+            body{
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 0 20px;
+                font-family:'Courier New', Courier, monospace;
+                max-width: 1200px;
+            }
+            p, h1, h2, h3, a, ul{
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                color: Red;
+            }
+            nav{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 60px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid rgb(109, 108, 108);
+                text-transform: uppercase;
+            }
+            nav ul{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+            nav li{
+                list-style-type: none;
+                margin-left: 20px;
+                margin-right: 20px;
+                /* padding: 1%; */
+                padding: 16px 32px;
+            }
+            nav li:hover{
+                background-color: crimson;
+                color: yellow;
+                /* padding: 1%; */
+                padding: 16px 32px;
+                transition: all 0.5s;
+                border-spacing: 40px;
+            }
+            nav h1{
+                font-size: 3em;
+            }
+            nav p, nav a{
+                color: black;
+                font-weight: 300;
+            }
+            h2{
+                margin-bottom: 40px;
+            }
+            h3{
+                text-transform: capitalize;
+                margin-bottom: 8px;
+            }
+            .content{
+                margin-left: 20px;
+            }
+            .create-blog form{
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .create-blog input,
+            .create-blog textarea{
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+                padding: 8px;
+            }
+            .create-blog label{
+                display: block;
+                margin-top: 24px;
+            }
+            textarea{
+                height: 120px;
+            }
+            button {
+                font-family: inherit;
+                font-size: 20px;
+                background: royalblue;
+                color: white;
+                padding: 0.7em 1em;
+                padding-left: 0.9em;
+                display: flex;
+                align-items: center;
+                border: none;
+                border-radius: 16px;
+                overflow: hidden;
+                transition: all 0.2s;
+                }
+
+                button span {
+                display: block;
+                margin-left: 0.3em;
+                transition: all 0.3s ease-in-out;
+                }
+
+                button svg {
+                display: block;
+                transform-origin: center center;
+                transition: transform 0.3s ease-in-out;
+                }
+
+                button:hover .svg-wrapper {
+                animation: fly-1 0.6s ease-in-out infinite alternate;
+                }
+
+                button:hover svg {
+                transform: translateX(1.2em) rotate(45deg) scale(1.1);
+                }
+
+                button:hover span {
+                transform: translateX(5em);
+                }
+
+                button:active {
+                transform: scale(0.95);
+                }
+
+                @keyframes fly-1 {
+                from {
+                transform: translateY(0.1em);
+                }
+
+                to {
+                transform: translateY(-0.1em);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="title">
+                <a href="/"><h1>Deja Blog</h1></a>
+                <p>Daily learning of node js</p>
+            </div>
+            <ul>
+                <li><a href="/">Blogs</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/create-blog">New blog</a></li>
+            </ul>
+        </nav>
+
+        <div class="create-blog content">
+            <form action="/blogs" method="POST" enctype="multipart/form-data">
+                <label for="title">Blog title</label>
+                <input type="text" name="title" id="title" required>
+                <label for="myImage">Select image:</label>
+                <input type="file" name="myImage" accept="image/*">
+                <label for="content">Blog content: </label>
+                <textarea id="content" name="content" required></textarea>
+                <!-- inspired from: https://cssbuttons.io/detail/adamgiebl/smart-moth-68 -->
+                <button>
+                    <div class="svg-wrapper-1">
+                      <div class="svg-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                          <path fill="none" d="M0 0h24v24H0z"></path>
+                          <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <span>Submit</span>
+                  </button>
+            </form>
+        </div>
+    </body>
+</html>
